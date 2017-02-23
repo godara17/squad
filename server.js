@@ -128,7 +128,7 @@ app.post('/signup', (req, res) => {
       return res.send({data: 'success'})
     return res.send({data: result})
   }).catch((err) => {
-    if (err.message.substring(7, 38) === 'duplicate key error collection:')
+    if (err.message.substring(7, 26) === 'duplicate key error')
       return res.send({mongoError: 'Email ID already Exists'})
     return res.send({mongoError: err.message})
   })
