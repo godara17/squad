@@ -141,10 +141,17 @@ app.post('/getuser', (req, res) => {
 
   return promise1.then((db) => {
     // return db.collection('users').find({}).toArray()
-    return db.collection('users').find({$and:[{emailID: param.emailID}, {pass: param.pass}]}).toArray()
+    return db.collection('users').find({emailID: param.emailID}).toArray()
   }).then((result) => {
-    return res.send({data: result[0]})
+    console.log('result')
+    console.log(result)
+    if (result.length === 0) return res.send({loginError: 'invalid UserID'})
+    if (result[0].pass === param.pass)
+      return res.send({data: result[0]})
+    return res.send({loginError: 'invalid password'})
   }).catch((err) => {
+      console.log('on err')
+      console.log(err)
       return res.send({mongoError: err.message})
   })
 })

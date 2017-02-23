@@ -37,10 +37,14 @@ export class RootComponent implements OnInit{
   handleLogin() {
     const _ = this
     _.squadService.getUser(_.userID, _.pass).then((res) => {
-      _.isLoggedIn = res
-      if (_.isLoggedIn) return _.router.navigate(['profile'])
+      if (res === true) {
+        _.isLoggedIn = res
+        return _.router.navigate(['profile'])
+      }
       _.displayErr = true
-      _.error      = res
+      _.error      = res.error
+      _.userID     = ''
+      _.pass       = ''
     })
   }
 

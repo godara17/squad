@@ -1,4 +1,11 @@
 <div class="container">
+  <div class = "row">
+    <div class = "col-md-11"></div>
+    <div class = "col-md-1">
+      <button (click) = "onLogin()"> Login </button>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
@@ -71,11 +78,11 @@
     <div class="col-md-4"></div>
   </div>
 
-  <div *ngIf = "invalidPass">
+  <div *ngIf = "displayErr">
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
-        Password Does Not Match.
+        {{error}}
       </div>
       <div class="col-md-4"></div>
     </div>

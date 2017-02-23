@@ -67,6 +67,7 @@ export class SquadService{
                         let body = res.json()
                         if (body.error) return {error: body.error}
                         else if (body.mongoError) return {error: body.mongoError}
+                        else if (body.loginError) return {error: body.loginError}
                         _.user       = body.data
                         _.userID     = userID
                         _.pass       = pass
@@ -89,7 +90,7 @@ export class SquadService{
                     if (body.error) return {error: body.error}
                     else if (body.mongoError) return {error: body.mongoError}
                     let data = body.data
-                    if (data != 'success') _.removeUser()
+                    if (data != 'success') return _.removeUser()
                     _.isLoggedIn = true
                     return data
                   })
@@ -114,6 +115,12 @@ export class SquadService{
   // }
 
   removeUser() {
+    const _ = this
+    _.user       = new User()
+    _.userID     = ''
+    _.pass       = ''
+    _.isLoggedIn = false
 
+    return Promise.resolve('failure')
   }
 }
