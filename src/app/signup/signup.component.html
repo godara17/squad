@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      First Name: <input [(ngModel)] = "user.fName" type = "text"/>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      Last Name: <input [(ngModel)] = "user.lName" type = "text"/>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      Email Id: <input [(ngModel)] = "user.emailID" type = "text"/>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      Password: <input [(ngModel)] = "user.pass" type = "password"/>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      Confirm Password: <input [(ngModel)] = "confPass" type = "password"/>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      Mobile No: <input [(ngModel)] = "user.mobileNo" type = "text"/>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      Gender: <input [(ngModel)] = "user.gender" type = "text"/>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      Age: <input [(ngModel)] = "user.age" type = "text"/>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <button style="align-self: center;"  (click)="handleSignUp()">SignUp</button>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
+  <div *ngIf = "invalidPass">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        Password Does Not Match.
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>
